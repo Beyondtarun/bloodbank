@@ -39,6 +39,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Add this script block in receiver_registration.html -->
+<!-- Add this script block in receiver_registration.html -->
 <script>
     $(document).ready(function() {
         $("#receiverRegistrationForm").submit(function(event) {
@@ -58,9 +59,10 @@
 
             $.ajax({
                 type: "POST",
-                url: "register_receiver.php",
+                url: "register.php",
                 data: {
-                    receiverData: JSON.stringify(receiverData)
+                    userData: JSON.stringify(receiverData),
+                    userType: "receiver"
                 },
                 success: function(response) {
                     alert(response); // Show the response from the server
@@ -70,6 +72,7 @@
         });
     });
 </script>
+
 
 </body>
 
