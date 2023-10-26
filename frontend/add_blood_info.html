@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blood Information</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2>Add Blood Information</h2>
+        <form id="bloodInfoForm">
+            <div class="form-group">
+                <label for="bloodType">Blood Type:</label>
+                <input type="text" class="form-control" id="bloodType" name="bloodType" required>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity (in units):</label>
+                <input type="number" class="form-control" id="quantity" name="quantity" required>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Add Blood Info</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#bloodInfoForm").submit(function(event) {
+                event.preventDefault();
+
+                var bloodType = $("#bloodType").val();
+                var quantity = $("#quantity").val();
+
+                var bloodInfoData = {
+                    bloodType: bloodType,
+                    quantity: quantity
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "add_blood_info.php",
+                    data: {
+                        bloodInfoData: JSON.stringify(bloodInfoData)
+                    },
+                    success: function(response) {
+                        alert(response); // Show the response from the server
+                        // You can redirect to another page or perform additional actions here
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
