@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Incorrect password!";
         }
     } else {
-        echo "User not found!";
+        echo " User not found!";
     }
 
     $stmt->close();

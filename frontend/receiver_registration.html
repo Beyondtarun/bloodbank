@@ -50,7 +50,7 @@
             var name = $("#name").val();
             var bloodGroup = $("#bloodGroup").val();
 
-            var receiverData = {
+            var userData = {
                 username: username,
                 password: password,
                 name: name,
@@ -59,9 +59,9 @@
 
             $.ajax({
                 type: "POST",
-                url: "register.php",
+                url: "../backend/register.php",
                 data: {
-                    userData: JSON.stringify(receiverData),
+                    userData: JSON.stringify(userData),
                     userType: "receiver"
                 },
                 success: function(response) {

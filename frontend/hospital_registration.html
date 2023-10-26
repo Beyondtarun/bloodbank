@@ -44,7 +44,7 @@
             var password = $("#password").val();
             var hospitalName = $("#hospitalName").val();
 
-            var hospitalData = {
+            var userData = {
                 username: username,
                 password: password,
                 hospitalName: hospitalName
@@ -52,9 +52,9 @@
 
             $.ajax({
                 type: "POST",
-                url: "register.php",
+                url: "../backend/register.php",
                 data: {
-                    userData: JSON.stringify(hospitalData),
+                    userData: JSON.stringify(userData),
                     userType: "hospital"
                 },
                 success: function(response) {
