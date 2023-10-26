@@ -34,9 +34,37 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script>
-        // Add AJAX submission logic for hospital registration here
-    </script>
+    <!-- Add this script block in hospital_registration.html -->
+<script>
+    $(document).ready(function() {
+        $("#hospitalRegistrationForm").submit(function(event) {
+            event.preventDefault();
+
+            var username = $("#username").val();
+            var password = $("#password").val();
+            var hospitalName = $("#hospitalName").val();
+
+            var hospitalData = {
+                username: username,
+                password: password,
+                hospitalName: hospitalName
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "register_hospital.php",
+                data: {
+                    hospitalData: JSON.stringify(hospitalData)
+                },
+                success: function(response) {
+                    alert(response); // Show the response from the server
+                    // You can redirect to another page or perform additional actions here
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 
 </html>

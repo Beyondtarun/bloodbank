@@ -38,9 +38,39 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script>
-        // Add AJAX submission logic for receiver registration here
-    </script>
+    <!-- Add this script block in receiver_registration.html -->
+<script>
+    $(document).ready(function() {
+        $("#receiverRegistrationForm").submit(function(event) {
+            event.preventDefault();
+
+            var username = $("#username").val();
+            var password = $("#password").val();
+            var name = $("#name").val();
+            var bloodGroup = $("#bloodGroup").val();
+
+            var receiverData = {
+                username: username,
+                password: password,
+                name: name,
+                bloodGroup: bloodGroup
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "register_receiver.php",
+                data: {
+                    receiverData: JSON.stringify(receiverData)
+                },
+                success: function(response) {
+                    alert(response); // Show the response from the server
+                    // You can redirect to another page or perform additional actions here
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 
 </html>
