@@ -1,15 +1,91 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Redirecting...</title>
-</head>
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        background: #000;
+        color: wheat;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .mainBox {
+        display: flex;
+        height: 50vh;
+        width: 50vw;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        padding: 10px;
+      }
+      .section1 {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        height: 50%;
+        width: 100%;
+        margin: 2%;
+        
+      }
+      .subBox{
+        background: rgb(211, 210, 210);
+        height: 100%;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 15px;
+        border-radius: 5px;
+        transition: all 0.4s ease;
+      }
+      .subBox:hover{
+        background: #4c4949;
+        
+    }
+     
+    a{
+        color: black;
+        text-decoration: none;
+        transition: all 0.4s ease;
+        font-size: larger;
+    }
+    .subBox:hover a{
+        color: yellow;
+    }
+    a:active{
+        text-decoration:none;
+    }
+    a:visited{
+        text-decoration: none;
+    }
+    </style>
+  </head>
 
-<body>
-    <script type="text/javascript">
-        // Redirect to the specified URL
-        window.location.href = "/backend/db_config.php";
-    </script>
-</body>
-
+  <body>
+    <h1>BLOOD BANK SYSTEM</h1>
+    <div class="mainBox">
+      <div class="section1">
+        <div class="subBox">
+            <a href="frontend/hospital_registration.html">HOSPITAL REGISTRATION</a>
+        </div>
+        <div class="subBox">
+            <a href="frontend/receiver_registration.html">RECEVIER REGISTRATION</a>
+        </div>
+      </div>
+      <div class="section1">
+        <div class="subBox">
+            <a href="frontend/login.html">LOGIN</a>
+        </div>
+        <div class="subBox">
+            <a href="frontend/avaliable_blood_samples.html">BLOOD AVALIABLE</a>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
